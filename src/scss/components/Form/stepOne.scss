@@ -1,0 +1,31 @@
+.formStepOne {
+  margin-left: 2rem;
+  margin-top: 2rem;
+  .overprint {
+    margin-bottom: 1rem;
+    .frontOrBack {
+    }
+    .overprint__photo {
+      background-image: url("https://picsum.photos/200/200");
+      height: 200px;
+      margin: 1rem 0;
+      width: 200px;
+    }
+  }
+  .tShirt {
+    height: 200px;
+    margin: 1rem 0;
+    width: 400px;
+    .tShirt__photo {
+      background-image: url("../../../assets/shirt.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 200px;
+      margin: 1rem 0;
+      width: 400px;
+    }
+  }
+  button {
+    margin-top: 6rem;
+  }
+}

@@ -1,7 +1,8 @@
 import React from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import "./scss/main.scss";
-import StepOne from "./components/Form/StepOne";
+import All from "./components/All.js";
+// import StepOne from "./components/Form/StepOne";
 // import StepTwo from "./components/Form/StepTwo";
 // import StepThree from "./components/Form/StepThree";
 // import OrderInfo from "./components/Summary/OrderInfo";
@@ -11,17 +12,7 @@ import StepOne from "./components/Form/StepOne";
 // import ThankYou from "./components/Summary/ThankYou";
 
 function App() {
-  return (
-    <HashRouter>
-      <Switch>
-        <Route exact path="/" component={StepOne} />
-        {/* <Route exact path="/oddaj-rzeczy" component={Step1} />
-        <Route exact path="/logowanie" component={Login} />
-        <Route exact path="/rejestracja" component={Register} />
-        <Route exact path="/wylogowano" component={Logout} /> */}
-      </Switch>
-    </HashRouter>
-  );
+  return <All />;
 }
 
 export default App;
