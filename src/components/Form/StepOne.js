@@ -8,6 +8,12 @@ class StepOne extends Component {
     return this.props.page !== 1 ? (
       <>
         <StepTwo
+          confirm1={this.props.confirm1}
+          confirm2={this.props.confirm2}
+          confirm3={this.props.confirm3}
+          confirmStepOne={this.props.confirmStepOne}
+          confirmStepTwo={this.props.confirmStepTwo}
+          confirmStepThree={this.props.confirmStepThree}
           editStep={this.props.editStep}
           frontOrBack={this.props.frontOrBack}
           previousPage={this.props.previousPage}

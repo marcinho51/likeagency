@@ -27,6 +27,12 @@ class Delivery extends Component {
     });
   };
 
+  goWithoutDelivery = () => {
+    this.setState({
+      allDataEntriedDelivery: true,
+    });
+  };
+
   theSameAddress = (e) => {
     this.setState({
       nameDelivery: this.props.name,
@@ -208,7 +214,9 @@ class Delivery extends Component {
         <button onClick={this.theSameAddress}>
           Adres taki sam, jak adres rachunku
         </button>
-        <button onClick={this.formValidation}>Dalej</button>
+        <button className="nextButton" onClick={this.formValidation}>
+          Dalej
+        </button>
       </>
     );
 
@@ -234,7 +242,13 @@ class Delivery extends Component {
             />
           </label>
 
-          {this.state.pickup === false ? emptyForm : null}
+          {this.state.pickup === false ? (
+            emptyForm
+          ) : (
+            <button className="nextButton" onClick={this.goWithoutDelivery}>
+              Dalej
+            </button>
+          )}
         </form>
       </>
     );

@@ -4,90 +4,87 @@ import UserData from "./UserData";
 
 class OrderInfo extends Component {
   state = {
-    cashbox: false,
-    confirm1: false,
-    confirm2: false,
-    confirm3: false,
+    toDataEntry: false,
   };
 
   toDataEntry = () => {
     this.setState({
-      cashbox: true,
+      toDataEntry: true,
     });
   };
 
-  confirmStepOne = () => {
-    this.setState((state) => ({
-      confirm1: !state.confirm1,
-    }));
-  };
-
-  confirmStepTwo = () => {
-    this.setState((state) => ({
-      confirm2: !state.confirm2,
-    }));
-  };
-
-  confirmStepThree = () => {
-    this.setState((state) => ({
-      confirm3: !state.confirm3,
-    }));
-  };
-
   render() {
-    return this.state.cashbox ? (
+    return this.state.toDataEntry ? (
       <UserData />
     ) : (
       <>
-        <div class="orderInfo">
+        <div className="orderInfo">
           <h1>Podsumowanie zamówienia:</h1>
           <h3>Typ koszulki: {this.props.frontOrBack}</h3>
-          {this.state.confirm1 ? (
+          {this.props.confirm1 ? (
             <button
-              class="confirmButton"
-              onClick={this.confirmStepOne}
-              style={{ backgroundColor: "green" }}
+              className="confirmButton"
+              onClick={this.props.confirmStepOne}
+              style={{ color: "white", backgroundColor: "green" }}
             >
               Potwierdzone
             </button>
           ) : (
-            <button class="confirmButton" onClick={this.confirmStepOne}>
-              Potwierdź
-            </button>
+            <>
+              <button
+                className="confirmButton"
+                onClick={this.props.confirmStepOne}
+              >
+                Potwierdź
+              </button>
+              <button onClick={() => this.props.editStep(1)}>Edytuj</button>
+            </>
           )}
-          <button onClick={() => this.props.editStep(1)}>Edytuj</button>
+
           <h3>Step2</h3>
-          {this.state.confirm2 ? (
+          {this.props.confirm2 ? (
             <button
-              class="confirmButton"
-              onClick={this.confirmStepTwo}
-              style={{ backgroundColor: "green" }}
+              className="confirmButton"
+              onClick={this.props.confirmStepTwo}
+              style={{ color: "white", backgroundColor: "green" }}
             >
               Potwierdzone
             </button>
           ) : (
-            <button class="confirmButton" onClick={this.confirmStepTwo}>
-              Potwierdź
-            </button>
+            <>
+              <button
+                className="confirmButton"
+                onClick={this.props.confirmStepTwo}
+              >
+                Potwierdź
+              </button>
+              <button onClick={() => this.props.editStep(2)}>Edytuj</button>
+            </>
           )}
-          <button onClick={() => this.props.editStep(2)}>Edytuj</button>
+
           <h3>Step3</h3>
-          {this.state.confirm3 ? (
+          {this.props.confirm3 ? (
             <button
-              class="confirmButton"
-              onClick={this.confirmStepThree}
-              style={{ backgroundColor: "green" }}
+              className="confirmButton"
+              onClick={this.props.confirmStepThree}
+              style={{ color: "white", backgroundColor: "green" }}
             >
               Potwierdzone
             </button>
           ) : (
-            <button class="confirmButton" onClick={this.confirmStepThree}>
-              Potwierdź
-            </button>
+            <>
+              <button
+                className="confirmButton"
+                onClick={this.props.confirmStepThree}
+              >
+                Potwierdź
+              </button>{" "}
+              <button onClick={() => this.props.editStep(3)}>Edytuj</button>
+            </>
           )}
-          <button onClick={() => this.props.editStep(3)}>Edytuj</button>
-          {this.state.confirm1 && this.state.confirm2 && this.state.confirm3 && (
-            <button class="toDataEntry" onClick={this.toDataEntry}>
+
+          {this.props.confirm1 && this.props.confirm2 && this.props.confirm3 && (
+            <button className="toDataEntry" onClick={this.toDataEntry}>
               Dalej
             </button>
           )}
