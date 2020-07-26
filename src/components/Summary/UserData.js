@@ -100,7 +100,17 @@ class UserData extends Component {
 
   render() {
     return this.state.allDataEntried ? (
-      <Delivery />
+      <Delivery
+        name={this.state.name}
+        surname={this.state.surname}
+        street={this.state.street}
+        houseNumber={this.state.houseNumber}
+        flatNumber={this.state.flatNumber}
+        postcode={this.state.postcode}
+        city={this.state.city}
+        phone={this.state.phone}
+        email={this.state.email}
+      />
     ) : (
       <>
         <form>
