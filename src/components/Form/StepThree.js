@@ -23,6 +23,10 @@ class StepThree extends Component {
     ) : (
       <>
         <h1>Formularz cz. III</h1>
+        <div
+          className="chosenImage"
+          style={{ backgroundImage: `url(${this.props.image})` }}
+        ></div>
         <button onClick={this.props.previousPage}>Wstecz</button>
         <button onClick={this.props.nextPage}>Dalej</button>
       </>

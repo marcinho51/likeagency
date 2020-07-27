@@ -10,6 +10,7 @@ class All extends Component {
     confirm3: false,
     confirm4: false,
     confirm5: false,
+    image: "",
   };
 
   confirmStepOne = () => {
@@ -70,6 +71,22 @@ class All extends Component {
     }
   };
 
+  nextPage2 = () => {
+    if (this.state.image !== "") {
+      this.setState({
+        page: this.state.page + 1,
+      });
+    } else {
+      return alert("Musisz wybrać nadruk!");
+    }
+  };
+
+  chooseImage = (event) => {
+    this.setState({
+      image: event.target.value,
+    });
+  };
+
   render() {
     return (
       <StepOne
@@ -88,7 +105,10 @@ class All extends Component {
         frontOrBackChoose={this.frontOrBackChoose}
         previousPage={this.previousPage}
         nextPage={this.nextPage}
+        nextPage2={this.nextPage2}
         page={this.state.page}
+        image={this.state.image}
+        chooseImage={this.chooseImage}
       />
     );
   }

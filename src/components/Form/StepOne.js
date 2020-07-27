@@ -22,7 +22,10 @@ class StepOne extends Component {
           frontOrBack={this.props.frontOrBack}
           previousPage={this.props.previousPage}
           nextPage={this.props.nextPage}
+          nextPage2={this.props.nextPage2}
           page={this.props.page}
+          image={this.props.image}
+          chooseImage={this.props.chooseImage}
         />
       </>
     ) : (
