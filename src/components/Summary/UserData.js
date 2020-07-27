@@ -14,6 +14,21 @@ class UserData extends Component {
     phone: "",
     email: "",
     allDataEntried: false,
+    pageSummary: 1,
+    allDataEntriedDelivery: false,
+  };
+
+  goWithoutDelivery = () => {
+    this.setState({
+      allDataEntriedDelivery: true,
+      pageSummary: this.state.pageSummary + 1,
+    });
+  };
+
+  editStepSummary = (value) => {
+    this.setState({
+      pageSummary: value,
+    });
   };
 
   handleChange = (event) => {
@@ -94,12 +109,13 @@ class UserData extends Component {
     ) {
       this.setState({
         allDataEntried: true,
+        pageSummary: this.state.pageSummary + 1,
       });
     }
   };
 
   render() {
-    return this.state.allDataEntried ? (
+    return this.state.allDataEntried && this.state.pageSummary !== 1 ? (
       <Delivery
         name={this.state.name}
         surname={this.state.surname}
@@ -110,9 +126,25 @@ class UserData extends Component {
         city={this.state.city}
         phone={this.state.phone}
         email={this.state.email}
+        confirm1={this.props.confirm1}
+        confirm2={this.props.confirm2}
+        confirm3={this.props.confirm3}
+        confirm4={this.props.confirm4}
+        confirm5={this.props.confirm5}
+        confirmStepOne={this.props.confirmStepOne}
+        confirmStepTwo={this.props.confirmStepTwo}
+        confirmStepThree={this.props.confirmStepThree}
+        confirmStepFour={this.props.confirmStepFour}
+        confirmStepFive={this.props.confirmStepFive}
+        pageSummary={this.state.pageSummary}
+        frontOrBack={this.props.frontOrBack}
+        editStepSummary={this.editStepSummary}
+        allDataEntriedDelivery={this.state.allDataEntriedDelivery}
+        goWithoutDelivery={this.goWithoutDelivery}
       />
     ) : (
       <>
+        <h1>Twoje dane</h1>
         <form>
           <label>
             Imię:

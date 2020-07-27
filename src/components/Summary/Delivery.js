@@ -12,7 +12,7 @@ class Delivery extends Component {
     cityDelivery: "",
     phoneDelivery: "",
     emailDelivery: "",
-    allDataEntriedDelivery: false,
+    // allDataEntriedDelivery: false,
   };
 
   handleChange = (event) => {
@@ -27,11 +27,12 @@ class Delivery extends Component {
     });
   };
 
-  goWithoutDelivery = () => {
-    this.setState({
-      allDataEntriedDelivery: true,
-    });
-  };
+  // goWithoutDelivery = () => {
+  //   this.setState({
+  //     allDataEntriedDelivery: true,
+  //     pageSummary: 3,
+  //   });
+  // };
 
   theSameAddress = (e) => {
     this.setState({
@@ -118,9 +119,7 @@ class Delivery extends Component {
       this.state.emailDelivery.length >= 6 &&
       this.state.emailDelivery.indexOf("@") !== -1
     ) {
-      this.setState({
-        allDataEntriedDelivery: true,
-      });
+      this.props.goWithoutDelivery();
     }
     e.preventDefault();
   };
@@ -220,10 +219,44 @@ class Delivery extends Component {
       </>
     );
 
-    return this.state.allDataEntriedDelivery ? (
-      <Final />
+    return this.props.allDataEntriedDelivery && this.props.pageSummary !== 2 ? (
+      <Final
+        confirm1={this.props.confirm1}
+        confirm2={this.props.confirm2}
+        confirm3={this.props.confirm3}
+        confirm4={this.props.confirm4}
+        confirm5={this.props.confirm5}
+        frontOrBack={this.props.frontOrBack}
+        confirmStepOne={this.props.confirmStepOne}
+        confirmStepTwo={this.props.confirmStepTwo}
+        confirmStepThree={this.props.confirmStepThree}
+        confirmStepFour={this.props.confirmStepFour}
+        confirmStepFive={this.props.confirmStepFive}
+        pageSummary={this.props.pageSummary}
+        editStepSummary={this.props.editStepSummary}
+        name={this.props.name}
+        surname={this.props.surname}
+        street={this.props.street}
+        houseNumber={this.props.houseNumber}
+        flatNumber={this.props.flatNumber}
+        postcode={this.props.postcode}
+        city={this.props.city}
+        phone={this.props.phone}
+        email={this.props.email}
+        pickup={this.state.pickup}
+        nameDelivery={this.state.nameDelivery}
+        surnameDelivery={this.state.surnameDelivery}
+        streetDelivery={this.state.streetDelivery}
+        houseNumberDelivery={this.state.houseNumberDelivery}
+        flatNumberDelivery={this.state.flatNumberDelivery}
+        postcodeDelivery={this.state.postcodeDelivery}
+        cityDelivery={this.state.cityDelivery}
+        phoneDelivery={this.state.phoneDelivery}
+        emailDelivery={this.state.emailDelivery}
+      />
     ) : (
       <>
+        <h1>Opcje dostawy towaru</h1>
         <form>
           <label>
             Odbiór osobisty
@@ -245,7 +278,10 @@ class Delivery extends Component {
           {this.state.pickup === false ? (
             emptyForm
           ) : (
-            <button className="nextButton" onClick={this.goWithoutDelivery}>
+            <button
+              className="nextButton"
+              onClick={this.props.goWithoutDelivery}
+            >
               Dalej
             </button>
           )}

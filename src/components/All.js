@@ -8,6 +8,8 @@ class All extends Component {
     confirm1: false,
     confirm2: false,
     confirm3: false,
+    confirm4: false,
+    confirm5: false,
   };
 
   confirmStepOne = () => {
@@ -25,6 +27,18 @@ class All extends Component {
   confirmStepThree = () => {
     this.setState((state) => ({
       confirm3: !state.confirm3,
+    }));
+  };
+
+  confirmStepFour = () => {
+    this.setState((state) => ({
+      confirm4: !state.confirm4,
+    }));
+  };
+
+  confirmStepFive = () => {
+    this.setState((state) => ({
+      confirm5: !state.confirm5,
     }));
   };
 
@@ -52,7 +66,7 @@ class All extends Component {
         page: this.state.page + 1,
       });
     } else {
-      return alert("Musisz wybrać stronę koszulki!");
+      return alert("Musisz wybrać stronę, na której będzie nadruk!");
     }
   };
 
@@ -62,9 +76,13 @@ class All extends Component {
         confirm1={this.state.confirm1}
         confirm2={this.state.confirm2}
         confirm3={this.state.confirm3}
+        confirm4={this.state.confirm4}
+        confirm5={this.state.confirm5}
         confirmStepOne={this.confirmStepOne}
         confirmStepTwo={this.confirmStepTwo}
         confirmStepThree={this.confirmStepThree}
+        confirmStepFour={this.confirmStepFour}
+        confirmStepFive={this.confirmStepFive}
         editStep={this.editStep}
         frontOrBack={this.state.frontOrBack}
         frontOrBackChoose={this.frontOrBackChoose}

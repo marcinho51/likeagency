@@ -15,7 +15,20 @@ class OrderInfo extends Component {
 
   render() {
     return this.state.toDataEntry ? (
-      <UserData />
+      <UserData
+        confirm1={this.props.confirm1}
+        confirm2={this.props.confirm2}
+        confirm3={this.props.confirm3}
+        confirm4={this.props.confirm4}
+        confirm5={this.props.confirm5}
+        confirmStepOne={this.props.confirmStepOne}
+        confirmStepTwo={this.props.confirmStepTwo}
+        confirmStepThree={this.props.confirmStepThree}
+        confirmStepFour={this.props.confirmStepFour}
+        confirmStepFive={this.props.confirmStepFive}
+        page={this.props.page}
+        frontOrBack={this.props.frontOrBack}
+      />
     ) : (
       <>
         <div className="orderInfo">

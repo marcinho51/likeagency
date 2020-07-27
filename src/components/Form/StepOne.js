@@ -11,9 +11,13 @@ class StepOne extends Component {
           confirm1={this.props.confirm1}
           confirm2={this.props.confirm2}
           confirm3={this.props.confirm3}
+          confirm4={this.props.confirm4}
+          confirm5={this.props.confirm5}
           confirmStepOne={this.props.confirmStepOne}
           confirmStepTwo={this.props.confirmStepTwo}
           confirmStepThree={this.props.confirmStepThree}
+          confirmStepFour={this.props.confirmStepFour}
+          confirmStepFive={this.props.confirmStepFive}
           editStep={this.props.editStep}
           frontOrBack={this.props.frontOrBack}
           previousPage={this.props.previousPage}
@@ -23,6 +27,7 @@ class StepOne extends Component {
       </>
     ) : (
       <div className="formStepOne">
+        <h1>Formularz cz. I</h1>
         <div className="overprint">
           <h3>Gdzie ma się znajdować nadruk?</h3>
           <select name="frontOrBack" onChange={this.props.frontOrBackChoose}>
@@ -34,9 +39,9 @@ class StepOne extends Component {
         </div>
 
         <div className="tShirt">
-          <h3>Your t-shirt:</h3>
+          <h3>Twoja koszulka:</h3>
           <div className="tShirt__photo"></div>
-          <h3>Price: </h3>
+          <h3>Cena: </h3>
         </div>
 
         <button onClick={this.props.nextPage}>Dalej</button>
