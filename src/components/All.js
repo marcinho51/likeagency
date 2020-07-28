@@ -11,6 +11,9 @@ class All extends Component {
     confirm4: false,
     confirm5: false,
     image: "",
+    imageEditOption: "",
+    blurOption: "",
+    blur: "",
   };
 
   confirmStepOne = () => {
@@ -62,28 +65,26 @@ class All extends Component {
   };
 
   nextPage = () => {
-    if (this.state.frontOrBack !== "") {
-      this.setState({
-        page: this.state.page + 1,
-      });
-    } else {
-      return alert("Musisz wybrać stronę, na której będzie nadruk!");
-    }
-  };
-
-  nextPage2 = () => {
-    if (this.state.image !== "") {
-      this.setState({
-        page: this.state.page + 1,
-      });
-    } else {
-      return alert("Musisz wybrać nadruk!");
-    }
+    this.setState({
+      page: this.state.page + 1,
+    });
   };
 
   chooseImage = (event) => {
     this.setState({
       image: event.target.value,
+    });
+  };
+
+  editImage = (event) => {
+    this.setState({
+      imageEditOption: event.target.value,
+    });
+  };
+
+  blurOption = (event) => {
+    this.setState({
+      blur: event.target.value,
     });
   };
 
@@ -105,10 +106,13 @@ class All extends Component {
         frontOrBackChoose={this.frontOrBackChoose}
         previousPage={this.previousPage}
         nextPage={this.nextPage}
-        nextPage2={this.nextPage2}
         page={this.state.page}
         image={this.state.image}
         chooseImage={this.chooseImage}
+        editImage={this.editImage}
+        blurOption={this.blurOption}
+        blur={this.state.blur}
+        imageEditOption={this.state.imageEditOption}
       />
     );
   }

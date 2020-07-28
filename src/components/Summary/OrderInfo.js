@@ -28,6 +28,7 @@ class OrderInfo extends Component {
         confirmStepFive={this.props.confirmStepFive}
         page={this.props.page}
         frontOrBack={this.props.frontOrBack}
+        price={this.props.price}
       />
     ) : (
       <>

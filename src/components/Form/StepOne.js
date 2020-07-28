@@ -22,10 +22,13 @@ class StepOne extends Component {
           frontOrBack={this.props.frontOrBack}
           previousPage={this.props.previousPage}
           nextPage={this.props.nextPage}
-          nextPage2={this.props.nextPage2}
           page={this.props.page}
           image={this.props.image}
           chooseImage={this.props.chooseImage}
+          editImage={this.props.editImage}
+          blurOption={this.props.blurOption}
+          blur={this.props.blur}
+          imageEditOption={this.props.imageEditOption}
         />
       </>
     ) : (
@@ -41,13 +44,12 @@ class StepOne extends Component {
           <div className="overprint__photo"></div>
         </div>
 
-        <div className="tShirt">
-          <h3>Twoja koszulka:</h3>
-          <div className="tShirt__photo"></div>
-          <h3>Cena: </h3>
+        <div className="price">
+          <h3>Cena: 10</h3>
         </div>
-
-        <button onClick={this.props.nextPage}>Dalej</button>
+        {this.props.frontOrBack !== "" && (
+          <button onClick={this.props.nextPage}>Dalej</button>
+        )}
       </div>
     );
   }

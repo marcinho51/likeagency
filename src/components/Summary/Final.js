@@ -174,6 +174,7 @@ class Final extends Component {
         cityDelivery={this.props.cityDelivery}
         phoneDelivery={this.props.phoneDelivery}
         emailDelivery={this.props.emailDelivery}
+        price={this.props.price}
       />
     ) : (
       <div className="finalSummary">

@@ -22,24 +22,34 @@ class StepTwo extends Component {
         nextPage={this.props.nextPage}
         page={this.props.page}
         image={this.props.image}
+        editImage={this.props.editImage}
+        blurOption={this.props.blurOption}
+        blur={this.props.blur}
+        imageEditOption={this.props.imageEditOption}
       />
     ) : (
       <div className="formStepTwo">
         <h1>Formularz cz. II</h1>
         <h3>Grafiki do wyboru:</h3>
-        <div className="photosToChoose">
-          <div className="overprint__photo">1</div>
-          <div className="overprint__photo2">2</div>
-          <div className="overprint__photo3">3</div>
-        </div>
         <select name="chooseImage" onChange={this.props.chooseImage}>
           <option>...</option>
           <option value="https://picsum.photos/200/200">1</option>
           <option value="https://picsum.photos/300/300">2</option>
           <option value="https://picsum.photos/400/400">3</option>
         </select>
+        <div className="photosToChoose">
+          <div className="overprint__photo">1</div>
+          <div className="overprint__photo2">2</div>
+          <div className="overprint__photo3">3</div>
+        </div>
+
+        <div className="price">
+          <h3>Cena: 10</h3>
+        </div>
         <button onClick={this.props.previousPage}>Wstecz</button>
-        <button onClick={this.props.nextPage2}>Dalej</button>
+        {this.props.image !== "" && (
+          <button onClick={this.props.nextPage}>Dalej</button>
+        )}
       </div>
     );
   }

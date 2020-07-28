@@ -253,6 +253,7 @@ class Delivery extends Component {
         cityDelivery={this.state.cityDelivery}
         phoneDelivery={this.state.phoneDelivery}
         emailDelivery={this.state.emailDelivery}
+        price={this.props.price}
       />
     ) : (
       <>
