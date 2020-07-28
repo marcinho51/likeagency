@@ -20,12 +20,13 @@ class StepThree extends Component {
         page={this.props.page}
         frontOrBack={this.props.frontOrBack}
         editStep={this.props.editStep}
+        imageEditOption={this.props.imageEditOption}
       />
     ) : (
       <>
         <h1>Formularz cz. III</h1>
         <h3>Widok nadruku:</h3>
-        <select name="editImage" onChange={this.editImage}>
+        <select name="editImage" onChange={this.props.editImage}>
           <option>...</option>
           <option value="normal">normalny</option>
           <option value="grayscale">grayscale</option>

@@ -141,7 +141,7 @@ class UserData extends Component {
         editStepSummary={this.editStepSummary}
         allDataEntriedDelivery={this.state.allDataEntriedDelivery}
         goWithoutDelivery={this.goWithoutDelivery}
-        price={this.props.price}
+        imageEditOption={this.props.imageEditOption}
       />
     ) : (
       <>

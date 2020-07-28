@@ -174,7 +174,7 @@ class Final extends Component {
         cityDelivery={this.props.cityDelivery}
         phoneDelivery={this.props.phoneDelivery}
         emailDelivery={this.props.emailDelivery}
-        price={this.props.price}
+        imageEditOption={this.props.imageEditOption}
       />
     ) : (
       <div className="finalSummary">
@@ -255,6 +255,34 @@ class Final extends Component {
               Dalej
             </button>
           )}
+        <div className="price">
+          <h3>
+            Cena:{" "}
+            {this.props.imageEditOption === "normal" &&
+            this.props.pickup === true
+              ? 10
+              : null}
+            {this.props.imageEditOption === "normal" &&
+            this.props.pickup === false
+              ? 15
+              : null}
+            {this.props.imageEditOption === "grayscale" &&
+            this.props.pickup === true
+              ? 12
+              : null}
+            {this.props.imageEditOption === "grayscale" &&
+            this.props.pickup === false
+              ? 17
+              : null}
+            {this.props.imageEditOption === "blur" && this.props.pickup === true
+              ? 13
+              : null}
+            {this.props.imageEditOption === "blur" &&
+            this.props.pickup === false
+              ? 18
+              : null}
+          </h3>
+        </div>
       </div>
     );
   }

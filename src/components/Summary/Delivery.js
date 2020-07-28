@@ -12,7 +12,6 @@ class Delivery extends Component {
     cityDelivery: "",
     phoneDelivery: "",
     emailDelivery: "",
-    // allDataEntriedDelivery: false,
   };
 
   handleChange = (event) => {
@@ -26,13 +25,6 @@ class Delivery extends Component {
       pickup: !this.state.pickup,
     });
   };
-
-  // goWithoutDelivery = () => {
-  //   this.setState({
-  //     allDataEntriedDelivery: true,
-  //     pageSummary: 3,
-  //   });
-  // };
 
   theSameAddress = (e) => {
     this.setState({
@@ -114,7 +106,7 @@ class Delivery extends Component {
       this.state.postcodeDelivery.length === 6 &&
       this.state.postcodeDelivery.indexOf("-") !== -1 &&
       this.state.cityDelivery.length >= 2 &&
-      isnum == true &&
+      isnum === true &&
       this.state.phoneDelivery.length === 9 &&
       this.state.emailDelivery.length >= 6 &&
       this.state.emailDelivery.indexOf("@") !== -1
@@ -221,6 +213,7 @@ class Delivery extends Component {
 
     return this.props.allDataEntriedDelivery && this.props.pageSummary !== 2 ? (
       <Final
+        imageEditOption={this.props.imageEditOption}
         confirm1={this.props.confirm1}
         confirm2={this.props.confirm2}
         confirm3={this.props.confirm3}
@@ -253,7 +246,6 @@ class Delivery extends Component {
         cityDelivery={this.state.cityDelivery}
         phoneDelivery={this.state.phoneDelivery}
         emailDelivery={this.state.emailDelivery}
-        price={this.props.price}
       />
     ) : (
       <>

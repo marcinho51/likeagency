@@ -28,7 +28,7 @@ class OrderInfo extends Component {
         confirmStepFive={this.props.confirmStepFive}
         page={this.props.page}
         frontOrBack={this.props.frontOrBack}
-        price={this.props.price}
+        imageEditOption={this.props.imageEditOption}
       />
     ) : (
       <>
@@ -102,6 +102,13 @@ class OrderInfo extends Component {
               Dalej
             </button>
           )}
+        </div>
+        <div className="price">
+          <h3>
+            Cena: {this.props.imageEditOption === "normal" && 10}
+            {this.props.imageEditOption === "grayscale" && 12}
+            {this.props.imageEditOption === "blur" && 13}
+          </h3>
         </div>
       </>
     );
