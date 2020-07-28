@@ -1,4 +1,8 @@
 @import "reset";
+@import "fonts";
+@import "colors";
+@import "base";
+@import "grid";
 @import "components/Form/stepOne.scss";
 @import "components/Form/stepTwo.scss";
 @import "components/Form/stepThree.scss";
@@ -6,7 +10,3 @@
 @import "components/Summary/userData.scss";
 @import "components/Summary/delivery.scss";
 @import "components/Summary/final.scss";
-
-h1 {
-  margin-bottom: 1rem;
-}

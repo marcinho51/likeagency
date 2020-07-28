@@ -14,6 +14,7 @@ class All extends Component {
     imageEditOption: "",
     blurOption: "",
     blur: "",
+    price: 0,
   };
 
   confirmStepOne = () => {
@@ -49,6 +50,7 @@ class All extends Component {
   frontOrBackChoose = (event) => {
     this.setState({
       frontOrBack: event.target.value,
+      price: 10,
     });
   };
 
@@ -90,30 +92,33 @@ class All extends Component {
 
   render() {
     return (
-      <StepOne
-        confirm1={this.state.confirm1}
-        confirm2={this.state.confirm2}
-        confirm3={this.state.confirm3}
-        confirm4={this.state.confirm4}
-        confirm5={this.state.confirm5}
-        confirmStepOne={this.confirmStepOne}
-        confirmStepTwo={this.confirmStepTwo}
-        confirmStepThree={this.confirmStepThree}
-        confirmStepFour={this.confirmStepFour}
-        confirmStepFive={this.confirmStepFive}
-        editStep={this.editStep}
-        frontOrBack={this.state.frontOrBack}
-        frontOrBackChoose={this.frontOrBackChoose}
-        previousPage={this.previousPage}
-        nextPage={this.nextPage}
-        page={this.state.page}
-        image={this.state.image}
-        chooseImage={this.chooseImage}
-        editImage={this.editImage}
-        blurOption={this.blurOption}
-        blur={this.state.blur}
-        imageEditOption={this.state.imageEditOption}
-      />
+      <div className="container">
+        <StepOne
+          confirm1={this.state.confirm1}
+          confirm2={this.state.confirm2}
+          confirm3={this.state.confirm3}
+          confirm4={this.state.confirm4}
+          confirm5={this.state.confirm5}
+          confirmStepOne={this.confirmStepOne}
+          confirmStepTwo={this.confirmStepTwo}
+          confirmStepThree={this.confirmStepThree}
+          confirmStepFour={this.confirmStepFour}
+          confirmStepFive={this.confirmStepFive}
+          editStep={this.editStep}
+          frontOrBack={this.state.frontOrBack}
+          frontOrBackChoose={this.frontOrBackChoose}
+          previousPage={this.previousPage}
+          nextPage={this.nextPage}
+          page={this.state.page}
+          image={this.state.image}
+          chooseImage={this.chooseImage}
+          editImage={this.editImage}
+          blurOption={this.blurOption}
+          blur={this.state.blur}
+          imageEditOption={this.state.imageEditOption}
+          price={this.state.price}
+        />
+      </div>
     );
   }
 }

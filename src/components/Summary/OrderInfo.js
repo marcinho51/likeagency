@@ -31,86 +31,96 @@ class OrderInfo extends Component {
         imageEditOption={this.props.imageEditOption}
       />
     ) : (
-      <>
-        <div className="orderInfo">
-          <h1>Podsumowanie zamówienia:</h1>
-          <h3>Typ koszulki: {this.props.frontOrBack}</h3>
-          {this.props.confirm1 ? (
-            <button
-              className="confirmButton"
-              onClick={this.props.confirmStepOne}
-              style={{ color: "white", backgroundColor: "green" }}
-            >
-              Potwierdzone
-            </button>
-          ) : (
-            <>
+      <div className="orderInfo">
+        <div className="row">
+          <div className="col-4"></div>
+          <div className="col-4">
+            <h1>Podsumowanie zamówienia:</h1>
+            <h3>Strona nadruku: {this.props.frontOrBack}</h3>
+            {this.props.confirm1 ? (
               <button
                 className="confirmButton"
                 onClick={this.props.confirmStepOne}
+                style={{ color: "white", backgroundColor: "green" }}
               >
-                Potwierdź
+                Potwierdzone
               </button>
-              <button onClick={() => this.props.editStep(1)}>Edytuj</button>
-            </>
-          )}
+            ) : (
+              <>
+                <button
+                  className="confirmButton"
+                  onClick={this.props.confirmStepOne}
+                >
+                  Potwierdź
+                </button>
+                <button onClick={() => this.props.editStep(1)}>Edytuj</button>
+              </>
+            )}
 
-          <h3>Step2</h3>
-          {this.props.confirm2 ? (
-            <button
-              className="confirmButton"
-              onClick={this.props.confirmStepTwo}
-              style={{ color: "white", backgroundColor: "green" }}
-            >
-              Potwierdzone
-            </button>
-          ) : (
-            <>
+            <h3>Wybrany nadruk (przed edycją):</h3>
+            <div
+              style={{
+                backgroundImage: `url(${this.props.image})`,
+                height: "200px",
+                width: "200px",
+              }}
+            ></div>
+            {this.props.confirm2 ? (
               <button
                 className="confirmButton"
                 onClick={this.props.confirmStepTwo}
+                style={{ color: "white", backgroundColor: "green" }}
               >
-                Potwierdź
+                Potwierdzone
               </button>
-              <button onClick={() => this.props.editStep(2)}>Edytuj</button>
-            </>
-          )}
+            ) : (
+              <>
+                <button
+                  className="confirmButton"
+                  onClick={this.props.confirmStepTwo}
+                >
+                  Potwierdź
+                </button>
+                <button onClick={() => this.props.editStep(2)}>Edytuj</button>
+              </>
+            )}
 
-          <h3>Step3</h3>
-          {this.props.confirm3 ? (
-            <button
-              className="confirmButton"
-              onClick={this.props.confirmStepThree}
-              style={{ color: "white", backgroundColor: "green" }}
-            >
-              Potwierdzone
-            </button>
-          ) : (
-            <>
+            <h3>Step3</h3>
+            {this.props.confirm3 ? (
               <button
                 className="confirmButton"
                 onClick={this.props.confirmStepThree}
+                style={{ color: "white", backgroundColor: "green" }}
               >
-                Potwierdź
-              </button>{" "}
-              <button onClick={() => this.props.editStep(3)}>Edytuj</button>
-            </>
-          )}
-
-          {this.props.confirm1 && this.props.confirm2 && this.props.confirm3 && (
-            <button className="toDataEntry" onClick={this.toDataEntry}>
-              Dalej
-            </button>
-          )}
+                Potwierdzone
+              </button>
+            ) : (
+              <>
+                <button
+                  className="confirmButton"
+                  onClick={this.props.confirmStepThree}
+                >
+                  Potwierdź
+                </button>{" "}
+                <button onClick={() => this.props.editStep(3)}>Edytuj</button>
+              </>
+            )}
+            <div className="price">
+              <h3>
+                Cena: {this.props.imageEditOption === "normal" && 10}
+                {this.props.imageEditOption === "grayscale" && 12}
+                {this.props.imageEditOption === "blur" && 13}
+              </h3>
+            </div>
+            {this.props.confirm1 && this.props.confirm2 && this.props.confirm3 && (
+              <button className="toDataEntry" onClick={this.toDataEntry}>
+                Dalej
+              </button>
+            )}
+          </div>
+          <div className="col-4"></div>
         </div>
-        <div className="price">
-          <h3>
-            Cena: {this.props.imageEditOption === "normal" && 10}
-            {this.props.imageEditOption === "grayscale" && 12}
-            {this.props.imageEditOption === "blur" && 13}
-          </h3>
-        </div>
-      </>
+      </div>
     );
   }
 }

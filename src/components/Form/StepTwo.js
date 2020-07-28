@@ -29,27 +29,44 @@ class StepTwo extends Component {
       />
     ) : (
       <div className="formStepTwo">
-        <h1>Formularz cz. II</h1>
-        <h3>Grafiki do wyboru:</h3>
-        <select name="chooseImage" onChange={this.props.chooseImage}>
-          <option>...</option>
-          <option value="https://picsum.photos/200/200">1</option>
-          <option value="https://picsum.photos/300/300">2</option>
-          <option value="https://picsum.photos/400/400">3</option>
-        </select>
+        <div className="row">
+          <div className="col-4"></div>
+          <div className="col-4">
+            <h1>Formularz cz. II</h1>
+            <h3>Którą grafikę wybierasz?</h3>
+            <select name="chooseImage" onChange={this.props.chooseImage}>
+              <option>...</option>
+              <option value="https://picsum.photos/200/200">1</option>
+              <option value="https://picsum.photos/300/300">2</option>
+              <option value="https://picsum.photos/400/400">3</option>
+              <div className="col-4"></div>
+            </select>
+          </div>
+        </div>
         <div className="photosToChoose">
-          <div className="overprint__photo">1</div>
-          <div className="overprint__photo2">2</div>
-          <div className="overprint__photo3">3</div>
+          <div className="overprint__photo">
+            <h3>1</h3>
+          </div>
+          <div className="overprint__photo2">
+            <h3>2</h3>
+          </div>
+          <div className="overprint__photo3">
+            <h3>3</h3>
+          </div>{" "}
         </div>
+        <div className="row">
+          <div className="col-4"></div>
 
-        <div className="price">
-          <h3>Cena: 10</h3>
+          <div className="price col-4">
+            <h3>Cena: 10</h3>
+
+            <button onClick={this.props.previousPage}>Wstecz</button>
+            {this.props.image !== "" && (
+              <button onClick={this.props.nextPage}>Dalej</button>
+            )}
+          </div>
+          <div className="col-4"></div>
         </div>
-        <button onClick={this.props.previousPage}>Wstecz</button>
-        {this.props.image !== "" && (
-          <button onClick={this.props.nextPage}>Dalej</button>
-        )}
       </div>
     );
   }

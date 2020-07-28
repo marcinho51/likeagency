@@ -21,81 +21,89 @@ class StepThree extends Component {
         frontOrBack={this.props.frontOrBack}
         editStep={this.props.editStep}
         imageEditOption={this.props.imageEditOption}
+        image={this.props.image}
       />
     ) : (
-      <>
-        <h1>Formularz cz. III</h1>
-        <h3>Widok nadruku:</h3>
-        <select name="editImage" onChange={this.props.editImage}>
-          <option>...</option>
-          <option value="normal">normalny</option>
-          <option value="grayscale">grayscale</option>
-          <option value="blur">blur</option>
-        </select>
-        {this.props.imageEditOption === "grayscale" && (
-          <>
-            <div
-              className="chosenImage"
-              style={{
-                backgroundImage: `url(${this.props.image})`,
-                filter: `grayscale(100%)`,
-              }}
-            ></div>
-            <div className="price">
-              <h3>Cena: 12</h3>
-            </div>
-            <button onClick={this.props.previousPage}>Wstecz</button>
-            <button onClick={this.props.nextPage}>Dalej</button>
-          </>
-        )}
-        {this.props.imageEditOption === "normal" && (
-          <>
-            <div
-              className="chosenImage"
-              style={{
-                backgroundImage: `url(${this.props.image})`,
-              }}
-            ></div>
-            <div className="price">
-              <h3>Cena: 10</h3>
-            </div>
-            <button onClick={this.props.previousPage}>Wstecz</button>
-            <button onClick={this.props.nextPage}>Dalej</button>
-          </>
-        )}
-
-        {this.props.imageEditOption === "blur" && (
-          <>
-            <h3>Wybierz stopień rozmycia (1-10):</h3>
-            <select name="blurOption" onChange={this.props.blurOption}>
+      <div className="formStepThree">
+        <div className="row">
+          <div className="col-4"></div>
+          <div className="col-4">
+            <h1>Formularz cz. III</h1>
+            <h3>Opcje edycji nadruku:</h3>
+            <select name="editImage" onChange={this.props.editImage}>
               <option>...</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+              <option value="normal">normalny</option>
+              <option value="grayscale">grayscale</option>
+              <option value="blur">blur</option>
             </select>
+            {this.props.imageEditOption === "grayscale" && (
+              <>
+                <div
+                  className="chosenImage"
+                  style={{
+                    backgroundImage: `url(${this.props.image})`,
+                    filter: `grayscale(100%)`,
+                  }}
+                ></div>
+                <div className="price">
+                  <h3>Cena: 12</h3>
+                </div>
+                <button onClick={this.props.previousPage}>Wstecz</button>
+                <button onClick={this.props.nextPage}>Dalej</button>
+              </>
+            )}
+            {this.props.imageEditOption === "normal" && (
+              <>
+                <div
+                  className="chosenImage"
+                  style={{
+                    backgroundImage: `url(${this.props.image})`,
+                  }}
+                ></div>
+                <div className="price">
+                  <h3>Cena: 10</h3>
+                </div>
+                <button onClick={this.props.previousPage}>Wstecz</button>
+                <button onClick={this.props.nextPage}>Dalej</button>
+              </>
+            )}
 
-            <div
-              className="chosenImage"
-              style={{
-                backgroundImage: `url(${this.props.image})`,
-                filter: `blur(${this.props.blur}px)`,
-              }}
-            ></div>
-            <div className="price">
-              <h3>Cena: 13</h3>
-            </div>
-            <button onClick={this.props.previousPage}>Wstecz</button>
-            <button onClick={this.props.nextPage}>Dalej</button>
-          </>
-        )}
-      </>
+            {this.props.imageEditOption === "blur" && (
+              <>
+                <h3>Wybierz stopień rozmycia (1-10):</h3>
+                <select name="blurOption" onChange={this.props.blurOption}>
+                  <option>...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+
+                <div
+                  className="chosenImage"
+                  style={{
+                    backgroundImage: `url(${this.props.image})`,
+                    filter: `blur(${this.props.blur}px)`,
+                  }}
+                ></div>
+                <div className="price">
+                  <h3>Cena: 13</h3>
+                </div>
+                <button onClick={this.props.previousPage}>Wstecz</button>
+                <button onClick={this.props.nextPage}>Dalej</button>
+              </>
+            )}
+          </div>
+
+          <div className="col-4"></div>
+        </div>
+      </div>
     );
   }
 }

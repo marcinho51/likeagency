@@ -6,7 +6,7 @@ class StepOne extends Component {
 
   render() {
     return this.props.page !== 1 ? (
-      <>
+      <div className="container">
         <StepTwo
           confirm1={this.props.confirm1}
           confirm2={this.props.confirm2}
@@ -30,26 +30,35 @@ class StepOne extends Component {
           blur={this.props.blur}
           imageEditOption={this.props.imageEditOption}
         />
-      </>
+      </div>
     ) : (
       <div className="formStepOne">
-        <h1>Formularz cz. I</h1>
-        <div className="overprint">
-          <h3>Gdzie ma się znajdować nadruk?</h3>
-          <select name="frontOrBack" onChange={this.props.frontOrBackChoose}>
-            <option>...</option>
-            <option value="front">Przód</option>
-            <option value="back">Tył</option>
-          </select>
-          <div className="overprint__photo"></div>
-        </div>
+        <div className="row">
+          <div className="col-4"></div>
+          <div className="col-4">
+            <h1>Formularz cz. I</h1>
+            <div className="overprint">
+              <h3>Gdzie ma się znajdować nadruk?</h3>
+              <select
+                name="frontOrBack"
+                onChange={this.props.frontOrBackChoose}
+              >
+                <option>...</option>
+                <option value="front">Przód</option>
+                <option value="back">Tył</option>
+              </select>
+              <div className="overprint__photo"></div>
+            </div>
 
-        <div className="price">
-          <h3>Cena: 10</h3>
+            <div className="price">
+              <h3>Cena: {this.props.price}</h3>
+            </div>
+            {this.props.frontOrBack !== "" && (
+              <button onClick={this.props.nextPage}>Dalej</button>
+            )}
+          </div>
+          <div className="col-4"></div>
         </div>
-        {this.props.frontOrBack !== "" && (
-          <button onClick={this.props.nextPage}>Dalej</button>
-        )}
       </div>
     );
   }
