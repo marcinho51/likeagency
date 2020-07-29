@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/likeagency/static/css/main.f699f104.chunk.css",
+    "main.js": "/likeagency/static/js/main.3cfe6597.chunk.js",
+    "main.js.map": "/likeagency/static/js/main.3cfe6597.chunk.js.map",
+    "runtime-main.js": "/likeagency/static/js/runtime-main.a8a496c3.js",
+    "runtime-main.js.map": "/likeagency/static/js/runtime-main.a8a496c3.js.map",
+    "static/js/2.4b0a28a1.chunk.js": "/likeagency/static/js/2.4b0a28a1.chunk.js",
+    "static/js/2.4b0a28a1.chunk.js.map": "/likeagency/static/js/2.4b0a28a1.chunk.js.map",
+    "index.html": "/likeagency/index.html",
+    "precache-manifest.49b9cc76733502c49ffafc847d9c0f6e.js": "/likeagency/precache-manifest.49b9cc76733502c49ffafc847d9c0f6e.js",
+    "service-worker.js": "/likeagency/service-worker.js",
+    "static/css/main.f699f104.chunk.css.map": "/likeagency/static/css/main.f699f104.chunk.css.map",
+    "static/js/2.4b0a28a1.chunk.js.LICENSE.txt": "/likeagency/static/js/2.4b0a28a1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a8a496c3.js",
+    "static/js/2.4b0a28a1.chunk.js",
+    "static/css/main.f699f104.chunk.css",
+    "static/js/main.3cfe6597.chunk.js"
+  ]
+}
