@@ -202,9 +202,7 @@ class Delivery extends Component {
             />
           </label>
         </form>
-        <button onClick={this.theSameAddress}>
-          Adres taki sam, jak adres rachunku
-        </button>
+        <button onClick={this.theSameAddress}>Adres jak zamawiającego</button>
         <button className="nextButton" onClick={this.formValidation}>
           Dalej
         </button>
@@ -212,74 +210,82 @@ class Delivery extends Component {
     );
 
     return this.props.allDataEntriedDelivery && this.props.pageSummary !== 2 ? (
-      <Final
-        imageEditOption={this.props.imageEditOption}
-        confirm1={this.props.confirm1}
-        confirm2={this.props.confirm2}
-        confirm3={this.props.confirm3}
-        confirm4={this.props.confirm4}
-        confirm5={this.props.confirm5}
-        frontOrBack={this.props.frontOrBack}
-        confirmStepOne={this.props.confirmStepOne}
-        confirmStepTwo={this.props.confirmStepTwo}
-        confirmStepThree={this.props.confirmStepThree}
-        confirmStepFour={this.props.confirmStepFour}
-        confirmStepFive={this.props.confirmStepFive}
-        pageSummary={this.props.pageSummary}
-        editStepSummary={this.props.editStepSummary}
-        name={this.props.name}
-        surname={this.props.surname}
-        street={this.props.street}
-        houseNumber={this.props.houseNumber}
-        flatNumber={this.props.flatNumber}
-        postcode={this.props.postcode}
-        city={this.props.city}
-        phone={this.props.phone}
-        email={this.props.email}
-        pickup={this.state.pickup}
-        nameDelivery={this.state.nameDelivery}
-        surnameDelivery={this.state.surnameDelivery}
-        streetDelivery={this.state.streetDelivery}
-        houseNumberDelivery={this.state.houseNumberDelivery}
-        flatNumberDelivery={this.state.flatNumberDelivery}
-        postcodeDelivery={this.state.postcodeDelivery}
-        cityDelivery={this.state.cityDelivery}
-        phoneDelivery={this.state.phoneDelivery}
-        emailDelivery={this.state.emailDelivery}
-      />
+      <div className="container">
+        <Final
+          imageEditOption={this.props.imageEditOption}
+          confirm1={this.props.confirm1}
+          confirm2={this.props.confirm2}
+          confirm3={this.props.confirm3}
+          confirm4={this.props.confirm4}
+          confirm5={this.props.confirm5}
+          frontOrBack={this.props.frontOrBack}
+          confirmStepOne={this.props.confirmStepOne}
+          confirmStepTwo={this.props.confirmStepTwo}
+          confirmStepThree={this.props.confirmStepThree}
+          confirmStepFour={this.props.confirmStepFour}
+          confirmStepFive={this.props.confirmStepFive}
+          pageSummary={this.props.pageSummary}
+          editStepSummary={this.props.editStepSummary}
+          name={this.props.name}
+          surname={this.props.surname}
+          street={this.props.street}
+          houseNumber={this.props.houseNumber}
+          flatNumber={this.props.flatNumber}
+          postcode={this.props.postcode}
+          city={this.props.city}
+          phone={this.props.phone}
+          email={this.props.email}
+          pickup={this.state.pickup}
+          nameDelivery={this.state.nameDelivery}
+          surnameDelivery={this.state.surnameDelivery}
+          streetDelivery={this.state.streetDelivery}
+          houseNumberDelivery={this.state.houseNumberDelivery}
+          flatNumberDelivery={this.state.flatNumberDelivery}
+          postcodeDelivery={this.state.postcodeDelivery}
+          cityDelivery={this.state.cityDelivery}
+          phoneDelivery={this.state.phoneDelivery}
+          emailDelivery={this.state.emailDelivery}
+          image={this.props.image}
+          blur={this.props.blur}
+        />
+      </div>
     ) : (
-      <>
-        <h1>Opcje dostawy towaru</h1>
-        <form>
-          <label>
-            Odbiór osobisty
-            <input
-              type="checkbox"
-              checked={this.state.pickup}
-              onChange={this.toggleChange}
-            />
-          </label>
-          <label>
-            Wysyłka
-            <input
-              type="checkbox"
-              checked={!this.state.pickup}
-              onChange={this.toggleChange}
-            />
-          </label>
+      <div className="delivery row">
+        <div className="col-4"></div>
+        <div className="col-4">
+          <h1>Opcje dostawy towaru</h1>
+          <form>
+            <label>
+              Odbiór osobisty
+              <input
+                type="checkbox"
+                checked={this.state.pickup}
+                onChange={this.toggleChange}
+              />
+            </label>
+            <label>
+              Wysyłka
+              <input
+                type="checkbox"
+                checked={!this.state.pickup}
+                onChange={this.toggleChange}
+              />
+            </label>
 
-          {this.state.pickup === false ? (
-            emptyForm
-          ) : (
-            <button
-              className="nextButton"
-              onClick={this.props.goWithoutDelivery}
-            >
-              Dalej
-            </button>
-          )}
-        </form>
-      </>
+            {this.state.pickup === false ? (
+              emptyForm
+            ) : (
+              <button
+                className="nextButton"
+                onClick={this.props.goWithoutDelivery}
+              >
+                Dalej
+              </button>
+            )}
+          </form>
+        </div>
+        <div className="col-4"></div>
+      </div>
     );
   }
 }

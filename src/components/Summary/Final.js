@@ -14,7 +14,7 @@ class Final extends Component {
   render() {
     const form = (
       <>
-        <h3>Typ koszulki: {this.props.frontOrBack}</h3>
+        <h3>Strona nadruku: {this.props.frontOrBack}</h3>
         {this.props.confirm1 ? (
           <button
             className="confirmButton"
@@ -37,7 +37,14 @@ class Final extends Component {
           </>
         )}
 
-        <h3>Step2</h3>
+        <h3>Wybrany nadruk (przed edycją):</h3>
+        <div
+          style={{
+            backgroundImage: `url(${this.props.image})`,
+            height: "200px",
+            width: "200px",
+          }}
+        ></div>
         {this.props.confirm2 ? (
           <button
             className="confirmButton"
@@ -60,7 +67,36 @@ class Final extends Component {
           </>
         )}
 
-        <h3>Step3</h3>
+        <h3>Wybrany nadruk (po edycji):</h3>
+        {this.props.imageEditOption === "normal" && (
+          <div
+            style={{
+              backgroundImage: `url(${this.props.image})`,
+              height: "200px",
+              width: "200px",
+            }}
+          ></div>
+        )}
+        {this.props.imageEditOption === "grayscale" && (
+          <div
+            style={{
+              backgroundImage: `url(${this.props.image})`,
+              height: "200px",
+              width: "200px",
+              filter: `grayscale(100%)`,
+            }}
+          ></div>
+        )}
+        {this.props.imageEditOption === "blur" && (
+          <div
+            style={{
+              backgroundImage: `url(${this.props.image})`,
+              height: "200px",
+              width: "200px",
+              filter: `blur(${this.props.blur}px)`,
+            }}
+          ></div>
+        )}
         {this.props.confirm3 ? (
           <button
             className="confirmButton"
@@ -153,136 +189,145 @@ class Final extends Component {
     );
 
     return this.state.toThankYou ? (
-      <ThankYou
-        frontOrBack={this.props.frontOrBack}
-        name={this.props.name}
-        surname={this.props.surname}
-        street={this.props.street}
-        houseNumber={this.props.houseNumber}
-        flatNumber={this.props.flatNumber}
-        postcode={this.props.postcode}
-        city={this.props.city}
-        phone={this.props.phone}
-        email={this.props.email}
-        pickup={this.props.pickup}
-        nameDelivery={this.props.nameDelivery}
-        surnameDelivery={this.props.surnameDelivery}
-        streetDelivery={this.props.streetDelivery}
-        houseNumberDelivery={this.props.houseNumberDelivery}
-        flatNumberDelivery={this.props.flatNumberDelivery}
-        postcodeDelivery={this.props.postcodeDelivery}
-        cityDelivery={this.props.cityDelivery}
-        phoneDelivery={this.props.phoneDelivery}
-        emailDelivery={this.props.emailDelivery}
-        imageEditOption={this.props.imageEditOption}
-      />
+      <div className="container">
+        <ThankYou
+          frontOrBack={this.props.frontOrBack}
+          name={this.props.name}
+          surname={this.props.surname}
+          street={this.props.street}
+          houseNumber={this.props.houseNumber}
+          flatNumber={this.props.flatNumber}
+          postcode={this.props.postcode}
+          city={this.props.city}
+          phone={this.props.phone}
+          email={this.props.email}
+          pickup={this.props.pickup}
+          nameDelivery={this.props.nameDelivery}
+          surnameDelivery={this.props.surnameDelivery}
+          streetDelivery={this.props.streetDelivery}
+          houseNumberDelivery={this.props.houseNumberDelivery}
+          flatNumberDelivery={this.props.flatNumberDelivery}
+          postcodeDelivery={this.props.postcodeDelivery}
+          cityDelivery={this.props.cityDelivery}
+          phoneDelivery={this.props.phoneDelivery}
+          emailDelivery={this.props.emailDelivery}
+          imageEditOption={this.props.imageEditOption}
+          image={this.props.image}
+          blur={this.props.blur}
+        />
+      </div>
     ) : (
-      <div className="finalSummary">
-        <h1>Finalne podsumowanie zamówienia</h1>
-        <h3>Produkt</h3>
-        {form}
-        <h3>Twoje dane</h3>
-        {personalData}
-        <h3>Opcja dostawy</h3>
-        {this.props.pickup ? (
-          <>
-            <h5>Odbiór osobisty</h5>
-            {this.props.confirm5 ? (
-              <button
-                className="confirmButton"
-                onClick={this.props.confirmStepFive}
-                style={{ color: "white", backgroundColor: "green" }}
-              >
-                Potwierdzone
-              </button>
-            ) : (
-              <>
+      <div className="finalSummary row">
+        <div className="col-4"></div>
+        <div className="col-4">
+          <h1>Finalne podsumowanie zamówienia</h1>
+          <h3>Produkt</h3>
+          {form}
+          <h3>Twoje dane</h3>
+          {personalData}
+          <h3>Opcja dostawy</h3>
+          {this.props.pickup ? (
+            <>
+              <h5>Odbiór osobisty</h5>
+              {this.props.confirm5 ? (
                 <button
                   className="confirmButton"
                   onClick={this.props.confirmStepFive}
+                  style={{ color: "white", backgroundColor: "green" }}
                 >
-                  Potwierdź
+                  Potwierdzone
                 </button>
-                <button onClick={() => this.props.editStepSummary(2)}>
-                  Edytuj
-                </button>
-              </>
-            )}
-          </>
-        ) : null}
-        {this.props.pickup === false &&
-        this.props.surnameDelivery === this.props.surname &&
-        this.props.emailDelivery === this.props.email ? (
-          <>
-            <h5>Wysyłka - dane jak powyżej</h5>
-            {this.props.confirm5 ? (
-              <button
-                className="confirmButton"
-                onClick={this.props.confirmStepFive}
-                style={{ color: "white", backgroundColor: "green" }}
-              >
-                Potwierdzone
-              </button>
-            ) : (
-              <>
+              ) : (
+                <>
+                  <button
+                    className="confirmButton"
+                    onClick={this.props.confirmStepFive}
+                  >
+                    Potwierdź
+                  </button>
+                  <button onClick={() => this.props.editStepSummary(2)}>
+                    Edytuj
+                  </button>
+                </>
+              )}
+            </>
+          ) : null}
+          {this.props.pickup === false &&
+          this.props.surnameDelivery === this.props.surname &&
+          this.props.emailDelivery === this.props.email ? (
+            <>
+              <h5>Wysyłka - dane jak powyżej</h5>
+              {this.props.confirm5 ? (
                 <button
                   className="confirmButton"
                   onClick={this.props.confirmStepFive}
+                  style={{ color: "white", backgroundColor: "green" }}
                 >
-                  Potwierdź
+                  Potwierdzone
                 </button>
-                <button onClick={() => this.props.editStepSummary(2)}>
-                  Edytuj
-                </button>
-              </>
+              ) : (
+                <>
+                  <button
+                    className="confirmButton"
+                    onClick={this.props.confirmStepFive}
+                  >
+                    Potwierdź
+                  </button>
+                  <button onClick={() => this.props.editStepSummary(2)}>
+                    Edytuj
+                  </button>
+                </>
+              )}
+            </>
+          ) : null}
+          {this.props.pickup === false &&
+          this.props.surnameDelivery !== this.props.surname &&
+          this.props.emailDelivery !== this.props.email ? (
+            <>
+              <h5>Wysyłka</h5>
+              {personalDataDelivery}
+            </>
+          ) : null}
+          <div className="price">
+            <h3>
+              Cena:{" "}
+              {this.props.imageEditOption === "normal" &&
+              this.props.pickup === true
+                ? 10
+                : null}
+              {this.props.imageEditOption === "normal" &&
+              this.props.pickup === false
+                ? 15
+                : null}
+              {this.props.imageEditOption === "grayscale" &&
+              this.props.pickup === true
+                ? 12
+                : null}
+              {this.props.imageEditOption === "grayscale" &&
+              this.props.pickup === false
+                ? 17
+                : null}
+              {this.props.imageEditOption === "blur" &&
+              this.props.pickup === true
+                ? 13
+                : null}
+              {this.props.imageEditOption === "blur" &&
+              this.props.pickup === false
+                ? 18
+                : null}
+            </h3>
+          </div>
+          {this.props.confirm1 &&
+            this.props.confirm2 &&
+            this.props.confirm3 &&
+            this.props.confirm4 &&
+            this.props.confirm5 && (
+              <button className="toThankYou" onClick={this.toThankYou}>
+                Dalej
+              </button>
             )}
-          </>
-        ) : null}
-        {this.props.pickup === false &&
-        this.props.surnameDelivery !== this.props.surname &&
-        this.props.emailDelivery !== this.props.email ? (
-          <>
-            <h5>Wysyłka</h5>
-            {personalDataDelivery}
-          </>
-        ) : null}
-        {this.props.confirm1 &&
-          this.props.confirm2 &&
-          this.props.confirm3 &&
-          this.props.confirm4 &&
-          this.props.confirm5 && (
-            <button className="toThankYou" onClick={this.toThankYou}>
-              Dalej
-            </button>
-          )}
-        <div className="price">
-          <h3>
-            Cena:{" "}
-            {this.props.imageEditOption === "normal" &&
-            this.props.pickup === true
-              ? 10
-              : null}
-            {this.props.imageEditOption === "normal" &&
-            this.props.pickup === false
-              ? 15
-              : null}
-            {this.props.imageEditOption === "grayscale" &&
-            this.props.pickup === true
-              ? 12
-              : null}
-            {this.props.imageEditOption === "grayscale" &&
-            this.props.pickup === false
-              ? 17
-              : null}
-            {this.props.imageEditOption === "blur" && this.props.pickup === true
-              ? 13
-              : null}
-            {this.props.imageEditOption === "blur" &&
-            this.props.pickup === false
-              ? 18
-              : null}
-          </h3>
         </div>
+        <div className="col-4"></div>
       </div>
     );
   }

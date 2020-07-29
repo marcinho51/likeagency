@@ -15,21 +15,25 @@ class OrderInfo extends Component {
 
   render() {
     return this.state.toDataEntry ? (
-      <UserData
-        confirm1={this.props.confirm1}
-        confirm2={this.props.confirm2}
-        confirm3={this.props.confirm3}
-        confirm4={this.props.confirm4}
-        confirm5={this.props.confirm5}
-        confirmStepOne={this.props.confirmStepOne}
-        confirmStepTwo={this.props.confirmStepTwo}
-        confirmStepThree={this.props.confirmStepThree}
-        confirmStepFour={this.props.confirmStepFour}
-        confirmStepFive={this.props.confirmStepFive}
-        page={this.props.page}
-        frontOrBack={this.props.frontOrBack}
-        imageEditOption={this.props.imageEditOption}
-      />
+      <div className="container">
+        <UserData
+          confirm1={this.props.confirm1}
+          confirm2={this.props.confirm2}
+          confirm3={this.props.confirm3}
+          confirm4={this.props.confirm4}
+          confirm5={this.props.confirm5}
+          confirmStepOne={this.props.confirmStepOne}
+          confirmStepTwo={this.props.confirmStepTwo}
+          confirmStepThree={this.props.confirmStepThree}
+          confirmStepFour={this.props.confirmStepFour}
+          confirmStepFive={this.props.confirmStepFive}
+          page={this.props.page}
+          frontOrBack={this.props.frontOrBack}
+          imageEditOption={this.props.imageEditOption}
+          image={this.props.image}
+          blur={this.props.blur}
+        />
+      </div>
     ) : (
       <div className="orderInfo">
         <div className="row">
@@ -85,7 +89,36 @@ class OrderInfo extends Component {
               </>
             )}
 
-            <h3>Step3</h3>
+            <h3>Wybrany nadruk (po edycji):</h3>
+            {this.props.imageEditOption === "normal" && (
+              <div
+                style={{
+                  backgroundImage: `url(${this.props.image})`,
+                  height: "200px",
+                  width: "200px",
+                }}
+              ></div>
+            )}
+            {this.props.imageEditOption === "grayscale" && (
+              <div
+                style={{
+                  backgroundImage: `url(${this.props.image})`,
+                  height: "200px",
+                  width: "200px",
+                  filter: `grayscale(100%)`,
+                }}
+              ></div>
+            )}
+            {this.props.imageEditOption === "blur" && (
+              <div
+                style={{
+                  backgroundImage: `url(${this.props.image})`,
+                  height: "200px",
+                  width: "200px",
+                  filter: `blur(${this.props.blur}px)`,
+                }}
+              ></div>
+            )}
             {this.props.confirm3 ? (
               <button
                 className="confirmButton"

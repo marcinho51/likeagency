@@ -22,6 +22,7 @@ class StepThree extends Component {
         editStep={this.props.editStep}
         imageEditOption={this.props.imageEditOption}
         image={this.props.image}
+        blur={this.props.blur}
       />
     ) : (
       <div className="formStepThree">
